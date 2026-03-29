@@ -1,0 +1,1283 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Wedding Invitation — Abdusalam & Fathima Hanna</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300;1,400;1,600&family=Cinzel:wght@400;600;700&family=Lato:wght@300;400;700&display=swap" rel="stylesheet"/>
+<style>
+:root {
+  --gold: #c9a84c;
+  --gold-light: #e8d5a3;
+  --gold-dark: #8b6914;
+  --gold-glow: rgba(201,168,76,0.25);
+  --cream: #fdf8f0;
+  --warm-white: #fffdf7;
+  --dark: #110a02;
+  --dark2: #1e1005;
+  --text-dark: #2c1810;
+  --text-mid: #5a3e28;
+  --text-light: #9a7c5a;
+}
+
+*, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+html { scroll-behavior: smooth; }
+
+body {
+  background: var(--cream);
+  color: var(--text-dark);
+  font-family: 'Lato', sans-serif;
+  overflow-x: hidden;
+}
+
+/* Grain overlay */
+body::before {
+  content: '';
+  position: fixed; inset: 0; z-index: 9999;
+  pointer-events: none;
+  background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 512 512' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='g'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.75' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23g)' opacity='0.04'/%3E%3C/svg%3E");
+  opacity: 0.35;
+}
+
+/* ═══════════════════════════
+   HERO
+═══════════════════════════ */
+.hero {
+  min-height: 100vh;
+  position: relative; overflow: hidden;
+  display: flex; flex-direction: column;
+  align-items: center; justify-content: center;
+  padding: 80px 24px 100px;
+  background: var(--dark);
+}
+
+/* Animated starfield */
+.stars { position: absolute; inset: 0; overflow: hidden; }
+.star {
+  position: absolute; border-radius: 50%;
+  background: var(--gold-light);
+  animation: twinkle ease-in-out infinite;
+}
+@keyframes twinkle {
+  0%,100% { opacity: 0.1; transform: scale(1); }
+  50% { opacity: 0.7; transform: scale(1.4); }
+}
+
+/* Central glow pulse */
+.hero-glow {
+  position: absolute;
+  width: 600px; height: 600px;
+  border-radius: 50%;
+  background: radial-gradient(circle, rgba(201,168,76,0.08) 0%, transparent 70%);
+  animation: glowPulse 4s ease-in-out infinite;
+}
+@keyframes glowPulse {
+  0%,100% { transform: scale(1); opacity: 0.6; }
+  50% { transform: scale(1.15); opacity: 1; }
+}
+
+/* Rising petals */
+.petal {
+  position: absolute; bottom: -20px;
+  border-radius: 50% 50% 30% 70% / 50% 50% 70% 30%;
+  animation: riseUp linear infinite;
+  opacity: 0;
+}
+@keyframes riseUp {
+  0%   { transform: translateY(0) rotate(0deg) scale(0.8); opacity: 0; }
+  10%  { opacity: 0.5; }
+  90%  { opacity: 0.15; }
+  100% { transform: translateY(-110vh) rotate(540deg) scale(1.2); opacity: 0; }
+}
+
+.bismillah-hero {
+  font-size: clamp(1.3rem, 4vw, 2rem);
+  color: var(--gold-light);
+  opacity: 0;
+  animation: fadeDown 1.2s ease 0.4s forwards;
+  margin-bottom: 6px;
+  text-align: center;
+  direction: rtl;
+}
+.bismillah-trans {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.65rem, 1.5vw, 0.8rem);
+  color: rgba(232,213,163,0.5);
+  letter-spacing: 0.2em;
+  opacity: 0;
+  animation: fadeDown 1s ease 0.7s forwards;
+  margin-bottom: 36px;
+  text-align: center;
+}
+
+.hero-ornament-wrap {
+  opacity: 0;
+  animation: fadeIn 1.4s ease 0.9s forwards;
+  margin-bottom: 24px;
+}
+
+.hero-eyebrow {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.55rem, 1.2vw, 0.7rem);
+  letter-spacing: 0.6em;
+  color: var(--gold);
+  text-transform: uppercase;
+  opacity: 0;
+  animation: fadeUp 1s ease 1.1s forwards;
+  margin-bottom: 20px;
+}
+
+.hero-groom {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.8rem, 13vw, 9rem);
+  font-weight: 300;
+  color: var(--warm-white);
+  line-height: 0.85;
+  text-align: center;
+  opacity: 0;
+  animation: slideRight 1.2s ease 1.3s forwards;
+  letter-spacing: -0.01em;
+}
+.hero-weds {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(1rem, 3vw, 1.6rem);
+  color: var(--gold);
+  letter-spacing: 0.4em;
+  display: block;
+  margin: 14px 0;
+  opacity: 0;
+  animation: fadeIn 1s ease 1.7s forwards;
+  text-align: center;
+}
+.hero-bride {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3.8rem, 13vw, 9rem);
+  font-weight: 300;
+  color: var(--gold-light);
+  line-height: 0.85;
+  text-align: center;
+  opacity: 0;
+  animation: slideLeft 1.2s ease 1.5s forwards;
+  letter-spacing: -0.01em;
+}
+
+.hero-divider {
+  width: 200px; height: 1px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  margin: 32px auto;
+  opacity: 0;
+  animation: expandWidth 1.2s ease 2s forwards;
+}
+@keyframes expandWidth {
+  from { opacity: 0; transform: scaleX(0); }
+  to   { opacity: 1; transform: scaleX(1); }
+}
+
+.hero-meta {
+  display: flex; align-items: center; gap: 20px; justify-content: center;
+  flex-wrap: wrap;
+  opacity: 0;
+  animation: fadeUp 1s ease 2.2s forwards;
+}
+.hero-meta-item {
+  font-family: 'Cinzel', serif;
+  font-size: clamp(0.6rem, 1.4vw, 0.72rem);
+  color: var(--gold-light);
+  letter-spacing: 0.3em;
+  text-align: center;
+}
+.hero-meta-dot { color: var(--gold); font-size: 0.5rem; opacity: 0.5; }
+
+.scroll-hint {
+  position: absolute; bottom: 32px;
+  display: flex; flex-direction: column; align-items: center; gap: 8px;
+  opacity: 0; animation: fadeIn 1.2s ease 3s forwards;
+}
+.scroll-hint span {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem; letter-spacing: 0.5em; color: var(--gold); text-transform: uppercase;
+}
+.scroll-line {
+  width: 1px; height: 44px;
+  background: linear-gradient(to bottom, var(--gold), transparent);
+  animation: scrollDown 2s ease-in-out infinite;
+}
+@keyframes scrollDown {
+  0% { transform: translateY(-8px); opacity: 0; }
+  40% { opacity: 1; }
+  100% { transform: translateY(8px); opacity: 0; }
+}
+
+/* ═══════════════════════════
+   ARABIC VERSE BAND
+═══════════════════════════ */
+.verse-band {
+  background: linear-gradient(135deg, #1a0d03, #2a1608, #1a0d03);
+  padding: 56px 24px;
+  text-align: center;
+  position: relative; overflow: hidden;
+}
+.verse-band::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse 80% 100% at 50% 50%, rgba(201,168,76,0.07), transparent);
+}
+.verse-arabic {
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  color: var(--gold-light);
+  direction: rtl;
+  line-height: 2;
+  margin-bottom: 16px;
+  opacity: 0;
+  animation: fadeUp 1s ease 0.2s both;
+}
+.verse-arabic.visible { animation: fadeUp 1s ease 0.2s forwards; }
+.verse-translation {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.85rem, 2.5vw, 1.15rem);
+  color: rgba(232,213,163,0.6);
+  letter-spacing: 0.08em;
+  line-height: 1.9;
+}
+.verse-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem; letter-spacing: 0.4em;
+  color: var(--gold); margin-top: 14px; opacity: 0.7;
+}
+
+/* ═══════════════════════════
+   SECTION BASE
+═══════════════════════════ */
+section { padding: clamp(70px, 10vw, 120px) clamp(20px, 5vw, 80px); }
+.section-inner { max-width: 960px; margin: 0 auto; text-align: center; }
+
+.section-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.62rem; letter-spacing: 0.6em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 12px; display: block;
+}
+.section-title {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 5vw, 3.8rem);
+  font-weight: 300; color: var(--text-dark);
+  margin-bottom: 18px; line-height: 1.1;
+}
+.section-title em { color: var(--gold-dark); font-style: italic; }
+.gold-rule {
+  display: flex; align-items: center; gap: 16px;
+  justify-content: center; margin: 0 auto 44px;
+}
+.gold-rule::before, .gold-rule::after {
+  content: ''; flex: 1; max-width: 140px; height: 1px;
+}
+.gold-rule::before { background: linear-gradient(90deg, transparent, var(--gold)); }
+.gold-rule::after  { background: linear-gradient(90deg, var(--gold), transparent); }
+.gold-rule-icon { color: var(--gold); font-size: 1rem; }
+
+/* Corner brackets */
+.corner {
+  position: absolute; width: 50px; height: 50px;
+  border-color: var(--gold); border-style: solid; opacity: 0.45;
+  transition: opacity 0.3s;
+}
+.corner.tl { top: 14px; left: 14px; border-width: 1px 0 0 1px; }
+.corner.tr { top: 14px; right: 14px; border-width: 1px 1px 0 0; }
+.corner.bl { bottom: 14px; left: 14px; border-width: 0 0 1px 1px; }
+.corner.br { bottom: 14px; right: 14px; border-width: 0 1px 1px 0; }
+
+/* ═══════════════════════════
+   INVITE CARD
+═══════════════════════════ */
+.invite-section {
+  background: linear-gradient(160deg, #fdf4e3, #fdf8f0, #f9f0de);
+  position: relative; overflow: hidden;
+}
+.invite-section::after {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(circle at 8% 15%, rgba(201,168,76,0.07) 0%, transparent 40%),
+    radial-gradient(circle at 92% 85%, rgba(201,168,76,0.07) 0%, transparent 40%);
+  pointer-events: none;
+}
+
+.invite-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(201,168,76,0.28);
+  padding: clamp(40px,8vw,80px) clamp(28px,7vw,72px);
+  position: relative;
+  max-width: 720px; margin: 0 auto;
+  box-shadow: 0 6px 48px rgba(0,0,0,0.07), inset 0 0 80px rgba(201,168,76,0.02);
+}
+.invite-card:hover .corner { opacity: 0.8; }
+
+.invite-arabic-big {
+  font-size: clamp(1.6rem, 5vw, 2.8rem);
+  color: var(--gold-dark);
+  direction: rtl;
+  margin-bottom: 4px;
+  line-height: 1.6;
+}
+.invite-sub {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: 0.75rem; letter-spacing: 0.22em;
+  color: var(--text-light); margin-bottom: 28px;
+}
+.invite-sep {
+  width: 80px; height: 1px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin: 0 auto 28px;
+}
+.invite-body {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1rem, 2.5vw, 1.25rem);
+  font-weight: 300; color: var(--text-mid);
+  line-height: 2; margin-bottom: 26px;
+}
+.invite-names-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.2rem, 6vw, 3.8rem);
+  font-weight: 300; color: var(--text-dark);
+  line-height: 1.05; margin: 24px 0;
+}
+.invite-names-big .w { font-style: italic; color: var(--gold-dark); font-size: 0.55em; display: block; margin: 6px 0; }
+.invite-footer-note {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.95rem;
+  color: var(--text-light); margin-top: 24px;
+}
+
+/* ═══════════════════════════
+   COUPLE — ELEVATED
+═══════════════════════════ */
+.couple-section {
+  background: var(--dark2);
+  position: relative; overflow: hidden;
+}
+.couple-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background:
+    radial-gradient(ellipse 60% 80% at 20% 50%, rgba(201,168,76,0.06), transparent),
+    radial-gradient(ellipse 60% 80% at 80% 50%, rgba(201,168,76,0.06), transparent);
+}
+
+.couple-section .section-label { color: var(--gold); }
+.couple-section .section-title { color: var(--gold-light); }
+.couple-section .gold-rule::before { background: linear-gradient(90deg,transparent,var(--gold)); }
+.couple-section .gold-rule::after  { background: linear-gradient(90deg,var(--gold),transparent); }
+
+/* Groom + Bride stacked vertically with connective design */
+.couple-layout {
+  display: flex; flex-direction: column; align-items: center; gap: 0;
+  margin-top: 48px;
+  max-width: 700px; margin-left: auto; margin-right: auto;
+}
+
+.person-panel {
+  width: 100%;
+  display: grid;
+  grid-template-columns: 1fr auto 1fr;
+  align-items: center;
+  gap: 32px;
+  padding: 40px 32px;
+  border: 1px solid rgba(201,168,76,0.15);
+  background: rgba(255,255,255,0.02);
+  position: relative;
+  transition: background 0.4s;
+}
+.person-panel:hover { background: rgba(201,168,76,0.04); }
+
+.person-panel.groom { border-bottom: none; }
+.person-panel.bride { border-top: 1px solid rgba(201,168,76,0.08); }
+
+/* Groom panel — left aligned text, image on right */
+.person-panel.groom .person-text { text-align: right; order: 1; }
+.person-panel.groom .person-img  { order: 2; }
+.person-panel.groom .person-tag  { order: 3; text-align: left; }
+
+/* Bride panel — right aligned text, image on left */
+.person-panel.bride .person-tag  { order: 1; text-align: right; }
+.person-panel.bride .person-img  { order: 2; }
+.person-panel.bride .person-text { text-align: left; order: 3; }
+
+.person-role {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem; letter-spacing: 0.55em;
+  color: var(--gold); text-transform: uppercase;
+  margin-bottom: 8px; display: block;
+}
+.person-name-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(1.8rem, 5vw, 3rem);
+  font-weight: 300; color: var(--warm-white);
+  line-height: 1;
+}
+.person-place {
+  font-size: 0.75rem; letter-spacing: 0.15em;
+  color: rgba(232,213,163,0.45);
+  margin-top: 10px;
+  font-style: italic;
+}
+.person-arabic-name {
+  font-size: clamp(1.1rem, 2.5vw, 1.6rem);
+  color: rgba(201,168,76,0.35);
+  direction: rtl; margin-top: 10px;
+  line-height: 1.5;
+}
+
+.person-img {
+  width: clamp(90px,15vw,130px);
+  height: clamp(90px,15vw,130px);
+  border-radius: 50%;
+  border: 2px solid rgba(201,168,76,0.5);
+  display: flex; align-items: center; justify-content: center;
+  font-size: clamp(2.5rem, 5vw, 4rem);
+  background: radial-gradient(circle, rgba(201,168,76,0.1), transparent);
+  box-shadow: 0 0 30px rgba(201,168,76,0.12), 0 0 0 8px rgba(201,168,76,0.05);
+  flex-shrink: 0;
+  animation: avatarGlow 3s ease-in-out infinite;
+  object-fit: cover;
+}
+@keyframes avatarGlow {
+  0%,100% { box-shadow: 0 0 20px rgba(201,168,76,0.1), 0 0 0 8px rgba(201,168,76,0.04); }
+  50%      { box-shadow: 0 0 40px rgba(201,168,76,0.22), 0 0 0 12px rgba(201,168,76,0.07); }
+}
+
+.person-tag { min-width: 80px; }
+.person-tag-number {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(3rem, 8vw, 5rem);
+  color: rgba(201,168,76,0.08);
+  font-weight: 300; line-height: 1;
+}
+
+.couple-photo-wrap {
+  text-align: center;
+  margin-bottom: 32px;
+  position: relative;
+  z-index: 2;
+}
+.couple-main-photo {
+  width: clamp(180px, 40vw, 260px);
+  height: clamp(180px, 40vw, 260px);
+  object-fit: cover;
+  border-radius: 50%;
+  border: 2px solid rgba(201,168,76,0.4);
+  padding: 8px;
+  background: rgba(201,168,76,0.05);
+  box-shadow: 0 0 40px rgba(201,168,76,0.25);
+  animation: avatarGlow 4s ease-in-out infinite;
+}
+
+/* Connector between panels */
+.couple-connector {
+  width: 1px; height: 60px;
+  background: linear-gradient(to bottom, rgba(201,168,76,0.4), rgba(201,168,76,0.1), rgba(201,168,76,0.4));
+  position: relative;
+}
+.couple-connector::before {
+  content: '💛';
+  position: absolute; top: 50%; left: 50%;
+  transform: translate(-50%, -50%);
+  font-size: 1.2rem;
+  animation: heartPulse 2s ease-in-out infinite;
+  background: var(--dark2); padding: 4px;
+}
+@keyframes heartPulse {
+  0%,100% { transform: translate(-50%,-50%) scale(1); }
+  50%      { transform: translate(-50%,-50%) scale(1.3); }
+}
+
+/* Arabic dua between couple */
+.couple-dua {
+  text-align: center; padding: 28px 20px 0;
+  font-size: clamp(1rem, 3vw, 1.5rem);
+  color: rgba(201,168,76,0.5);
+  direction: rtl; line-height: 2;
+}
+.couple-dua-trans {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 0.8rem;
+  color: rgba(232,213,163,0.3); letter-spacing: 0.1em;
+  direction: ltr; margin-top: 6px;
+  display: block;
+}
+
+@media (max-width: 580px) {
+  .person-panel {
+    grid-template-columns: 1fr;
+    text-align: center !important;
+    padding: 32px 20px;
+  }
+  .person-panel.groom .person-text,
+  .person-panel.bride .person-text { text-align: center; order: 2; }
+  .person-panel.groom .person-img,
+  .person-panel.bride .person-img  { order: 1; margin: 0 auto; }
+  .person-panel.groom .person-tag,
+  .person-panel.bride .person-tag  { display: none; }
+}
+
+/* ═══════════════════════════
+   EVENTS
+═══════════════════════════ */
+.events-section {
+  background: linear-gradient(160deg, #fdf4e3, #fdf8f0, #f5ece0);
+  position: relative;
+}
+.events-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 0%, rgba(201,168,76,0.06), transparent 60%);
+  pointer-events: none;
+}
+
+.events-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 28px; margin-top: 0;
+}
+
+.event-card {
+  background: var(--warm-white);
+  border: 1px solid rgba(201,168,76,0.22);
+  padding: 44px 32px;
+  text-align: center; position: relative;
+  box-shadow: 0 4px 24px rgba(0,0,0,0.05);
+  transition: transform 0.4s cubic-bezier(0.34,1.56,0.64,1), box-shadow 0.4s;
+  overflow: hidden;
+}
+.event-card::before {
+  content: '';
+  position: absolute; top: 0; left: 0; right: 0; height: 3px;
+  background: linear-gradient(90deg, transparent, var(--gold), transparent);
+  transform: scaleX(0); transition: transform 0.4s ease;
+}
+.event-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 16px 48px rgba(139,105,20,0.14);
+}
+.event-card:hover::before { transform: scaleX(1); }
+
+.event-icon {
+  font-size: 2.4rem; margin-bottom: 18px; display: block;
+  animation: iconFloat 3s ease-in-out infinite;
+}
+@keyframes iconFloat {
+  0%,100% { transform: translateY(0); }
+  50%      { transform: translateY(-5px); }
+}
+.event-arabic {
+  font-size: 1.3rem; color: rgba(139,105,20,0.4);
+  direction: rtl; margin-bottom: 10px;
+  line-height: 1.8;
+}
+.event-name {
+  font-family: 'Cinzel', serif;
+  font-size: 0.68rem; letter-spacing: 0.5em;
+  color: var(--gold-dark); text-transform: uppercase;
+  margin-bottom: 14px; display: block;
+}
+.event-time-big {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3rem); font-weight: 300;
+  color: var(--text-dark); line-height: 1;
+}
+.event-ampm {
+  font-size: 0.7em; color: var(--gold-dark); font-style: italic; margin-left: 4px;
+}
+.event-date-label {
+  font-size: 0.75rem; color: var(--text-light); margin: 10px 0 16px;
+  letter-spacing: 0.12em;
+}
+.event-sep {
+  width: 40px; height: 1px;
+  background: linear-gradient(90deg,transparent,var(--gold),transparent);
+  margin: 14px auto;
+}
+.event-venue {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: 1.2rem; font-style: italic;
+  color: var(--gold-dark);
+}
+.event-address {
+  font-size: 0.75rem; color: var(--text-light);
+  margin-top: 6px; line-height: 1.7;
+}
+
+/* ═══════════════════════════
+   COUNTDOWN
+═══════════════════════════ */
+.countdown-section {
+  background: radial-gradient(ellipse at center, #1e1005 0%, var(--dark) 100%);
+  padding: clamp(70px,10vw,110px) 20px;
+  text-align: center; position: relative; overflow: hidden;
+}
+.countdown-section::before {
+  content: 'بارك الله';
+  position: absolute; font-size: clamp(8rem,25vw,18rem);
+  color: rgba(201,168,76,0.03);
+  top: 50%; left: 50%; transform: translate(-50%,-50%);
+  white-space: nowrap; pointer-events: none; direction: rtl;
+  animation: slowRotate 60s linear infinite;
+}
+@keyframes slowRotate {
+  from { transform: translate(-50%,-50%) rotate(0deg); }
+  to   { transform: translate(-50%,-50%) rotate(360deg); }
+}
+
+.countdown-arabic {
+  font-size: clamp(1.2rem, 3vw, 1.8rem);
+  color: rgba(201,168,76,0.5);
+  direction: rtl; margin-bottom: 8px;
+}
+.countdown-section .section-title { color: var(--gold-light); }
+.countdown-section .section-label { color: var(--gold); }
+
+.countdown-grid {
+  display: flex; justify-content: center; align-items: flex-start;
+  gap: clamp(12px, 3vw, 32px); flex-wrap: wrap;
+  margin-top: 52px;
+}
+.count-unit { text-align: center; min-width: 70px; }
+.count-box {
+  border: 1px solid rgba(201,168,76,0.2);
+  padding: 20px 16px;
+  background: rgba(201,168,76,0.04);
+  position: relative;
+  margin-bottom: 12px;
+  transition: border-color 0.3s;
+}
+.count-box::before, .count-box::after {
+  content: '';
+  position: absolute; width: 8px; height: 8px;
+  border-color: var(--gold); border-style: solid; opacity: 0.4;
+}
+.count-box::before { top: 4px; left: 4px; border-width: 1px 0 0 1px; }
+.count-box::after  { bottom: 4px; right: 4px; border-width: 0 1px 1px 0; }
+.count-num {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2.8rem, 8vw, 5.5rem);
+  font-weight: 300; color: var(--gold);
+  line-height: 1; display: block;
+  text-shadow: 0 0 40px rgba(201,168,76,0.25);
+}
+.count-label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.55rem; letter-spacing: 0.45em;
+  color: rgba(232,213,163,0.5); text-transform: uppercase;
+}
+.count-sep {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 5vw, 3.5rem);
+  color: rgba(201,168,76,0.25); line-height: 1.2;
+  padding-top: 18px;
+}
+
+/* ═══════════════════════════
+   DUA SECTION
+═══════════════════════════ */
+.dua-section {
+  background: linear-gradient(135deg, #fdf4e3, #fdf8f0);
+  text-align: center; padding: clamp(60px,8vw,100px) 24px;
+  position: relative; overflow: hidden;
+}
+.dua-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 50%, rgba(201,168,76,0.06), transparent 60%);
+}
+
+.dua-arabic-main {
+  font-size: clamp(1.6rem, 5vw, 3rem);
+  color: var(--gold-dark);
+  direction: rtl; line-height: 2;
+  margin: 20px auto;
+  max-width: 800px;
+}
+.dua-translation {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.9rem, 2.5vw, 1.2rem);
+  color: var(--text-mid); line-height: 2;
+  max-width: 600px; margin: 0 auto 12px;
+}
+.dua-ref {
+  font-family: 'Cinzel', serif;
+  font-size: 0.6rem; letter-spacing: 0.4em;
+  color: var(--gold); opacity: 0.7;
+}
+
+/* ═══════════════════════════
+   RSVP
+═══════════════════════════ */
+.rsvp-section {
+  background: var(--dark2);
+  position: relative; overflow: hidden;
+}
+.rsvp-section::before {
+  content: '';
+  position: absolute; inset: 0;
+  background: radial-gradient(ellipse at 50% 100%, rgba(201,168,76,0.06), transparent 60%);
+}
+.rsvp-section .section-label { color: var(--gold); }
+.rsvp-section .section-title { color: var(--gold-light); }
+.rsvp-section .gold-rule::before { background: linear-gradient(90deg,transparent,var(--gold)); }
+.rsvp-section .gold-rule::after  { background: linear-gradient(90deg,var(--gold),transparent); }
+
+.rsvp-card {
+  max-width: 580px; margin: 0 auto;
+  background: rgba(255,255,255,0.03);
+  border: 1px solid rgba(201,168,76,0.18);
+  padding: clamp(32px,6vw,60px);
+  position: relative;
+  box-shadow: 0 8px 50px rgba(0,0,0,0.2);
+}
+
+.rsvp-form { display: flex; flex-direction: column; gap: 18px; margin-top: 32px; }
+.form-field { display: flex; flex-direction: column; gap: 7px; text-align: left; }
+.form-field label {
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem; letter-spacing: 0.4em;
+  color: var(--gold); text-transform: uppercase;
+}
+.form-field input, .form-field select, .form-field textarea {
+  padding: 13px 16px;
+  border: 1px solid rgba(201,168,76,0.2);
+  background: rgba(255,255,255,0.04);
+  color: var(--gold-light);
+  font-family: 'Lato', sans-serif; font-size: 0.9rem;
+  outline: none; transition: border 0.3s, background 0.3s;
+}
+.form-field input::placeholder,
+.form-field textarea::placeholder { color: rgba(232,213,163,0.3); }
+.form-field input:focus, .form-field select:focus, .form-field textarea:focus {
+  border-color: var(--gold); background: rgba(201,168,76,0.05);
+}
+.form-field select option { background: var(--dark2); color: var(--cream); }
+.form-field textarea { resize: vertical; min-height: 88px; }
+.form-2col { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+
+.rsvp-btn {
+  background: linear-gradient(135deg, var(--gold-dark), var(--gold), var(--gold-dark));
+  background-size: 200% 100%; background-position: right;
+  color: var(--dark);
+  border: none; padding: 17px 40px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.7rem; letter-spacing: 0.45em;
+  text-transform: uppercase; cursor: pointer;
+  transition: all 0.4s; margin-top: 8px;
+  box-shadow: 0 4px 24px rgba(139,105,20,0.3);
+  font-weight: 700;
+}
+.rsvp-btn:hover {
+  background-position: left;
+  transform: translateY(-2px);
+  box-shadow: 0 10px 36px rgba(139,105,20,0.4);
+}
+.rsvp-success {
+  display: none; text-align: center; padding: 36px 20px;
+  animation: fadeUp 0.8s ease forwards;
+}
+.rsvp-success .arabic-ok { font-size: 2rem; color: var(--gold); direction: rtl; }
+.rsvp-success p {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic; font-size: 1.3rem;
+  color: var(--gold-light); margin-top: 12px; line-height: 1.8;
+}
+
+/* ═══════════════════════════
+   FOOTER
+═══════════════════════════ */
+footer {
+  background: var(--dark);
+  text-align: center;
+  padding: 60px 24px 40px;
+}
+.footer-arabic {
+  font-size: clamp(1.4rem, 4vw, 2.2rem);
+  color: rgba(201,168,76,0.3);
+  direction: rtl; margin-bottom: 20px;
+  letter-spacing: 0.05em;
+}
+.footer-names {
+  font-family: 'Cormorant Garamond', serif;
+  font-size: clamp(2rem, 6vw, 3.5rem);
+  font-weight: 300; color: var(--gold-light);
+  line-height: 1.1; margin-bottom: 6px;
+}
+.footer-names .w { font-style: italic; color: var(--gold); font-size: 0.5em; display: inline-block; margin: 0 10px; }
+.footer-ayah {
+  font-family: 'Cormorant Garamond', serif;
+  font-style: italic;
+  font-size: clamp(0.8rem, 2vw, 1rem);
+  color: rgba(232,213,163,0.35); line-height: 2;
+  max-width: 500px; margin: 20px auto 0;
+}
+.footer-meta {
+  margin-top: 28px;
+  font-family: 'Cinzel', serif;
+  font-size: 0.58rem; letter-spacing: 0.3em;
+  color: rgba(232,213,163,0.2);
+}
+.footer-hearts { color: var(--gold); font-size: 1rem; letter-spacing: 8px; margin: 16px 0; }
+
+/* ═══════════════════════════
+   ANIMATIONS
+═══════════════════════════ */
+@keyframes fadeUp   { from { opacity:0; transform:translateY(28px);  } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeDown { from { opacity:0; transform:translateY(-20px); } to { opacity:1; transform:translateY(0); } }
+@keyframes fadeIn   { from { opacity:0; } to { opacity:1; } }
+@keyframes slideRight { from { opacity:0; transform:translateX(-40px); } to { opacity:1; transform:translateX(0); } }
+@keyframes slideLeft  { from { opacity:0; transform:translateX(40px);  } to { opacity:1; transform:translateX(0); } }
+
+.reveal {
+  opacity: 0; transform: translateY(32px);
+  transition: opacity 0.9s ease, transform 0.9s ease;
+}
+.reveal.visible { opacity:1; transform:none; }
+
+.reveal-left  { opacity:0; transform:translateX(-40px); transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal-right { opacity:0; transform:translateX(40px);  transition: opacity 0.9s ease, transform 0.9s ease; }
+.reveal-left.visible, .reveal-right.visible { opacity:1; transform:none; }
+
+.reveal-scale { opacity:0; transform:scale(0.9); transition: opacity 0.8s ease, transform 0.8s ease; }
+.reveal-scale.visible { opacity:1; transform:scale(1); }
+
+.delay-1 { transition-delay: 0.1s !important; }
+.delay-2 { transition-delay: 0.2s !important; }
+.delay-3 { transition-delay: 0.3s !important; }
+.delay-4 { transition-delay: 0.4s !important; }
+.delay-5 { transition-delay: 0.5s !important; }
+
+@media (max-width: 480px) {
+  .count-sep { display: none; }
+  .form-2col { grid-template-columns: 1fr; }
+}
+</style>
+</head>
+<body>
+
+<!-- ══════════ HERO ══════════ -->
+<section class="hero">
+  <div class="stars" id="starfield"></div>
+  <div class="hero-glow"></div>
+
+  <p class="bismillah-hero">بِسْمِ ٱللَّٰهِ ٱلرَّحْمَٰنِ ٱلرَّحِيمِ</p>
+  <p class="bismillah-trans">In the name of Allah, the Most Gracious, the Most Merciful</p>
+
+  <!-- Ornament SVG -->
+  <div class="hero-ornament-wrap">
+    <svg viewBox="0 0 340 70" style="width:clamp(180px,45vw,300px);" fill="none" xmlns="http://www.w3.org/2000/svg">
+      <line x1="8" y1="35" x2="120" y2="35" stroke="#c9a84c" stroke-width="0.5" opacity="0.5"/>
+      <line x1="220" y1="35" x2="332" y2="35" stroke="#c9a84c" stroke-width="0.5" opacity="0.5"/>
+      <circle cx="170" cy="35" r="22" stroke="#c9a84c" stroke-width="0.7" opacity="0.45"/>
+      <circle cx="170" cy="35" r="14" stroke="#c9a84c" stroke-width="0.4" opacity="0.35"/>
+      <circle cx="170" cy="35" r="4" fill="#c9a84c" opacity="0.4"/>
+      <path d="M170 13 L172.5 29 L170 22 L167.5 29 Z" fill="#c9a84c" opacity="0.45"/>
+      <path d="M170 57 L172.5 41 L170 48 L167.5 41 Z" fill="#c9a84c" opacity="0.45"/>
+      <path d="M192 35 L176 37.5 L183 35 L176 32.5 Z" fill="#c9a84c" opacity="0.45"/>
+      <path d="M148 35 L164 37.5 L157 35 L164 32.5 Z" fill="#c9a84c" opacity="0.45"/>
+      <circle cx="130" cy="35" r="2.5" fill="#c9a84c" opacity="0.3"/>
+      <circle cx="108" cy="35" r="1.8" fill="#c9a84c" opacity="0.2"/>
+      <circle cx="210" cy="35" r="2.5" fill="#c9a84c" opacity="0.3"/>
+      <circle cx="232" cy="35" r="1.8" fill="#c9a84c" opacity="0.2"/>
+      <path d="M120 24 Q145 14 170 13 Q195 14 220 24" stroke="#c9a84c" stroke-width="0.4" fill="none" opacity="0.25"/>
+      <path d="M120 46 Q145 56 170 57 Q195 56 220 46" stroke="#c9a84c" stroke-width="0.4" fill="none" opacity="0.25"/>
+    </svg>
+  </div>
+
+  <p class="hero-eyebrow">Wedding Invitation ✦ دعوة زفاف</p>
+
+  <div style="position:relative;z-index:2;text-align:center;">
+    <span class="hero-groom">Abdusalam</span>
+    <span class="hero-weds">& تزوج &</span>
+    <span class="hero-bride">Fathima Hanna</span>
+  </div>
+
+  <div class="hero-divider"></div>
+
+  <div class="hero-meta">
+    <span class="hero-meta-item">SUNDAY<br/>17TH MAY 2026</span>
+    <span class="hero-meta-dot">◆</span>
+    <span class="hero-meta-item">AFTERNOON<br/>LUNCH</span>
+    <span class="hero-meta-dot">◆</span>
+    <span class="hero-meta-item">KP LOUNGE<br/>KONDOTTY</span>
+  </div>
+
+  <div class="scroll-hint">
+    <span>Scroll</span>
+    <div class="scroll-line"></div>
+  </div>
+</section>
+
+<!-- ══════════ ARABIC VERSE ══════════ -->
+<div class="verse-band">
+  <p class="verse-arabic reveal">وَمِنْ آيَاتِهِ أَنْ خَلَقَ لَكُم مِّنْ أَنفُسِكُمْ أَزْوَاجًا لِّتَسْكُنُوا إِلَيْهَا</p>
+  <p class="verse-translation reveal delay-2">
+    "And of His signs is that He created for you from yourselves mates<br/>
+    that you may find tranquility in them."
+  </p>
+  <p class="verse-ref reveal delay-3">— سُورَةُ الرُّومِ &nbsp;|&nbsp; Surah Ar-Rum 30:21</p>
+</div>
+
+<!-- ══════════ INVITE CARD ══════════ -->
+<section class="invite-section">
+  <div class="section-inner">
+    <p class="section-label reveal">بدعوتكم الكريمة</p>
+    <h2 class="section-title reveal">You Are <em>Cordially Invited</em></h2>
+    <div class="gold-rule reveal"><span class="gold-rule-icon">✦</span></div>
+
+    <div class="invite-card reveal-scale">
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl"></div><div class="corner br"></div>
+
+      <p class="invite-arabic-big">بِسْمِ ٱللَّٰهِ</p>
+      <p class="invite-sub">In the name of Allah — الرَّحْمَٰنِ الرَّحِيمِ</p>
+      <div class="invite-sep"></div>
+
+      <p class="invite-body">
+        Together with joy and gratitude to Allah,<br/>
+        the families of
+      </p>
+
+      <div class="invite-names-big">
+        Abdusalam
+        <span class="w">weds &nbsp;يَتَزَوَّجُ</span>
+        Fathima Hanna
+      </div>
+
+      <div class="invite-sep"></div>
+
+      <p class="invite-body">
+        request the honour of your presence,<br/>
+        your duas, and your blessings<br/>
+        on this blessed occasion.
+      </p>
+
+      <p class="invite-footer-note">
+        ~ بارك الله لكما وبارك عليكما ~<br/>
+        <span style="font-size:0.75rem;letter-spacing:0.15em;">May Allah bless you both and bless your union</span>
+      </p>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COUPLE ══════════ -->
+<section class="couple-section">
+  <div class="section-inner">
+    <p class="section-label reveal">العروسان</p>
+    <h2 class="section-title reveal">The <em>Blessed Union</em></h2>
+    <div class="gold-rule reveal"><span class="gold-rule-icon">✦</span></div>
+
+    <div class="couple-photo-wrap reveal-scale">
+      <img src="couple.jpeg" alt="Abdusalam & Fathima Hanna" class="couple-main-photo" />
+    </div>
+    <div class="couple-layout">
+
+      <!-- GROOM -->
+      <div class="person-panel groom reveal-left">
+        <div class="person-text">
+          <span class="person-role">العريس · The Groom</span>
+          <h3 class="person-name-big">Abdusalam</h3>
+          <p class="person-place">📍 Kondotty, Malappuram · Kerala</p>
+          <p class="person-arabic-name">عبد السلام</p>
+        </div>
+        <img class="person-img" src="groom.jpeg" alt="Groom" />
+        <div class="person-tag">
+          <div class="person-tag-number">01</div>
+        </div>
+      </div>
+
+      <div class="couple-connector"></div>
+
+      <!-- BRIDE -->
+      <div class="person-panel bride reveal-right">
+        <div class="person-tag">
+          <div class="person-tag-number" style="text-align:right;">02</div>
+        </div>
+        <img class="person-img" src="bride.jpeg" alt="Bride" />
+        <div class="person-text">
+          <span class="person-role">العروس · The Bride</span>
+          <h3 class="person-name-big">Fathima Hanna</h3>
+          <p class="person-place">📍 Beypore, Kozhikode · Kerala</p>
+          <p class="person-arabic-name">فاطمة حنا</p>
+        </div>
+      </div>
+
+      <div class="couple-dua reveal">
+        بَارَكَ اللَّهُ لَكُمَا وَبَارَكَ عَلَيْكُمَا وَجَمَعَ بَيْنَكُمَا فِي خَيْرٍ
+        <span class="couple-dua-trans">May Allah bless you both, shower His blessings upon you, and bring you together in goodness.</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ EVENTS ══════════ -->
+<section class="events-section">
+  <div class="section-inner">
+    <p class="section-label reveal">مواعيد الفرح</p>
+    <h2 class="section-title reveal">Celebration <em>Events</em></h2>
+    <div class="gold-rule reveal"><span class="gold-rule-icon">✦</span></div>
+
+    <div class="events-grid">
+
+      <!-- Mehndi Night -->
+      <div class="event-card reveal delay-1">
+        <div class="corner tl"></div><div class="corner br"></div>
+        <span class="event-icon">🌙</span>
+        <p class="event-arabic">ليلة الحنة</p>
+        <span class="event-name">Mehndi Night · حفلة الحناء</span>
+        <p class="event-time-big">6:00<span class="event-ampm">PM</span></p>
+        <p class="event-date-label">Saturday · 16th May 2026</p>
+        <div class="event-sep"></div>
+        <p class="event-venue">Family Residence</p>
+        <p class="event-address">Beypore, Kozhikode<br/>Kerala</p>
+      </div>
+
+      <!-- Marriage -->
+      <div class="event-card reveal delay-3">
+        <div class="corner tl"></div><div class="corner br"></div>
+        <span class="event-icon">💍</span>
+        <p class="event-arabic">وليمة الزفاف</p>
+        <span class="event-name">Marriage Reception · وليمة</span>
+        <p class="event-time-big">12:00<span class="event-ampm">Noon</span></p>
+        <p class="event-date-label">Sunday · 17th May 2026 · Lunch</p>
+        <div class="event-sep"></div>
+        <p class="event-venue">KP Lounge Auditorium</p>
+        <p class="event-address">Kondotty, Malappuram<br/>Kerala</p>
+      </div>
+
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ COUNTDOWN ══════════ -->
+<section class="countdown-section">
+  <p class="countdown-arabic reveal">يوم الفرح قادم</p>
+  <p class="section-label reveal" style="color:var(--gold);">The Day of Joy Approaches</p>
+  <h2 class="section-title reveal">Counting <em>Down</em></h2>
+  <div class="gold-rule reveal"><span class="gold-rule-icon" style="color:var(--gold);">✦</span></div>
+
+  <div class="countdown-grid">
+    <div class="count-unit reveal delay-1">
+      <div class="count-box"><span class="count-num" id="cd-days">--</span></div>
+      <span class="count-label">أيام · Days</span>
+    </div>
+    <div class="count-sep reveal delay-2">:</div>
+    <div class="count-unit reveal delay-2">
+      <div class="count-box"><span class="count-num" id="cd-hours">--</span></div>
+      <span class="count-label">ساعات · Hours</span>
+    </div>
+    <div class="count-sep reveal delay-3">:</div>
+    <div class="count-unit reveal delay-3">
+      <div class="count-box"><span class="count-num" id="cd-mins">--</span></div>
+      <span class="count-label">دقائق · Mins</span>
+    </div>
+    <div class="count-sep reveal delay-4">:</div>
+    <div class="count-unit reveal delay-4">
+      <div class="count-box"><span class="count-num" id="cd-secs">--</span></div>
+      <span class="count-label">ثوانٍ · Secs</span>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ DUA SECTION ══════════ -->
+<section class="dua-section">
+  <div class="section-inner">
+    <p class="section-label reveal">دعاء</p>
+    <h2 class="section-title reveal">Our <em>Prayer & Dua</em></h2>
+    <div class="gold-rule reveal"><span class="gold-rule-icon">✦</span></div>
+    <p class="dua-arabic-main reveal">
+      اللَّهُمَّ بَارِكْ لَهُمَا وَبَارِكْ عَلَيْهِمَا وَاجْمَعْ بَيْنَهُمَا فِي الْخَيْرِ
+    </p>
+    <p class="dua-translation reveal delay-2">
+      "O Allah, bless them, shower Your blessings upon them,<br/>
+      and unite them in goodness."
+    </p>
+    <p class="dua-ref reveal delay-3">— Dua for the Newlyweds · دعاء للعروسين</p>
+  </div>
+</section>
+
+<!-- ══════════ RSVP ══════════ -->
+<section class="rsvp-section">
+  <div class="section-inner">
+    <p class="section-label reveal">تأكيد الحضور</p>
+    <h2 class="section-title reveal">Kindly <em>RSVP</em></h2>
+    <div class="gold-rule reveal"><span class="gold-rule-icon" style="color:var(--gold);">✦</span></div>
+
+    <div class="rsvp-card reveal-scale">
+      <div class="corner tl"></div><div class="corner tr"></div>
+      <div class="corner bl"></div><div class="corner br"></div>
+
+      <p style="font-family:'Cormorant Garamond',serif;font-style:italic;font-size:1.05rem;color:rgba(232,213,163,0.7);text-align:center;">
+        Please confirm your presence by <strong style="color:var(--gold);">10th May 2026</strong>
+      </p>
+
+      <form class="rsvp-form" onsubmit="submitRSVP(event)">
+        <div class="form-field">
+          <label>Full Name · الاسم الكامل</label>
+          <input type="text" placeholder="Your full name" required/>
+        </div>
+        <div class="form-field">
+          <label>WhatsApp Number · رقم الواتساب</label>
+          <input type="tel" placeholder="+91 XXXXX XXXXX"/>
+        </div>
+        <div class="form-2col">
+          <div class="form-field">
+            <label>Attending · الحضور</label>
+            <select>
+              <option>Yes, Joyfully! 🤍</option>
+              <option>Mehndi Night Only</option>
+              <option>Reception Only</option>
+              <option>Unable to Attend</option>
+            </select>
+          </div>
+          <div class="form-field">
+            <label>Guests · الضيوف</label>
+            <select>
+              <option>Just me</option>
+              <option>2 guests</option>
+              <option>3 guests</option>
+              <option>4+ guests</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-field">
+          <label>Duas & Wishes · الدعاء والتهاني</label>
+          <textarea placeholder="Share your blessings and duas for Abdusalam & Fathima Hanna…"></textarea>
+        </div>
+        <button type="submit" class="rsvp-btn">Confirm · تأكيد ✦</button>
+      </form>
+
+      <div class="rsvp-success" id="rsvpSuccess">
+        <div class="arabic-ok">جَزَاكَ ٱللَّهُ خَيْرًا</div>
+        <p>JazakAllah Khair!<br/>
+        <span style="font-size:0.85rem;color:rgba(232,213,163,0.5);">Your RSVP is received. We can't wait to celebrate with you!</span></p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══════════ FOOTER ══════════ -->
+<footer>
+  <p class="footer-arabic">بارك الله لكما</p>
+
+  <svg viewBox="0 0 320 40" style="width:220px;opacity:0.3;margin-bottom:24px;" fill="none">
+    <line x1="0" y1="20" x2="122" y2="20" stroke="#c9a84c" stroke-width="0.5"/>
+    <circle cx="160" cy="20" r="14" stroke="#c9a84c" stroke-width="0.7"/>
+    <circle cx="160" cy="20" r="7" stroke="#c9a84c" stroke-width="0.4"/>
+    <circle cx="160" cy="20" r="2.5" fill="#c9a84c"/>
+    <line x1="198" y1="20" x2="320" y2="20" stroke="#c9a84c" stroke-width="0.5"/>
+  </svg>
+
+  <p class="footer-names">
+    Abdusalam
+    <span class="w">&amp;</span>
+    Fathima Hanna
+  </p>
+
+  <div class="footer-hearts">✦ ✦ ✦</div>
+
+  <p class="footer-ayah">
+    "And He it is who has created man from water, then He has established<br/>
+    relationships of lineage and marriage." — Surah Al-Furqan 25:54
+  </p>
+
+  <p class="footer-meta">
+    17 · 05 · 2026 &nbsp;✦&nbsp; KP LOUNGE AUDITORIUM &nbsp;✦&nbsp; KONDOTTY, KERALA
+  </p>
+</footer>
+
+<script>
+// ── Starfield
+(function(){
+  const sf = document.getElementById('starfield');
+  for(let i=0;i<80;i++){
+    const s = document.createElement('div');
+    s.className = 'star';
+    const size = 0.8 + Math.random()*2.2;
+    s.style.cssText = `
+      width:${size}px; height:${size}px;
+      left:${Math.random()*100}%;
+      top:${Math.random()*100}%;
+      animation-duration:${2+Math.random()*4}s;
+      animation-delay:${Math.random()*4}s;
+    `;
+    sf.appendChild(s);
+  }
+})();
+
+// ── Rising petals
+(function(){
+  const colors = ['rgba(201,168,76,0.4)','rgba(232,213,163,0.3)','rgba(255,255,240,0.2)'];
+  for(let i=0;i<22;i++){
+    const p = document.createElement('div');
+    p.className = 'petal';
+    const size = 5 + Math.random()*9;
+    p.style.cssText = `
+      width:${size}px; height:${size*1.3}px;
+      left:${Math.random()*100}%;
+      background:${colors[Math.floor(Math.random()*colors.length)]};
+      animation-duration:${10+Math.random()*16}s;
+      animation-delay:${Math.random()*14}s;
+    `;
+    document.querySelector('.hero').appendChild(p);
+  }
+})();
+
+// ── Scroll reveal
+const observer = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if(e.isIntersecting) e.target.classList.add('visible');
+  });
+}, { threshold: 0.12 });
+document.querySelectorAll('.reveal, .reveal-left, .reveal-right, .reveal-scale').forEach(el => observer.observe(el));
+
+// ── Countdown to 17 May 2026 12 Noon
+function updateCountdown(){
+  const target = new Date('2026-05-17T12:00:00');
+  const now = new Date();
+  const diff = target - now;
+  const ids = ['cd-days','cd-hours','cd-mins','cd-secs'];
+  if(diff <= 0){
+    ids.forEach(id => document.getElementById(id).textContent = '00');
+    return;
+  }
+  const vals = [
+    Math.floor(diff/86400000),
+    Math.floor((diff%86400000)/3600000),
+    Math.floor((diff%3600000)/60000),
+    Math.floor((diff%60000)/1000)
+  ];
+  ids.forEach((id,i) => {
+    const el = document.getElementById(id);
+    const v = String(vals[i]).padStart(2,'0');
+    if(el.textContent !== v){
+      el.style.transform = 'translateY(-6px)';
+      el.style.opacity = '0.4';
+      setTimeout(()=>{ el.textContent = v; el.style.transform=''; el.style.opacity=''; }, 150);
+    }
+  });
+}
+document.querySelectorAll('#cd-days,#cd-hours,#cd-mins,#cd-secs').forEach(el=>{
+  el.style.transition = 'transform 0.15s ease, opacity 0.15s ease';
+});
+updateCountdown();
+setInterval(updateCountdown, 1000);
+
+// ── RSVP
+function submitRSVP(e){
+  e.preventDefault();
+  e.target.style.display = 'none';
+  document.getElementById('rsvpSuccess').style.display = 'block';
+}
+</script>
+
+</body>
+</html>
